@@ -80,10 +80,6 @@ export default function RestaurantListings({
 		const unsubscribe = getRestaurantsSnapshot(data => {
 			setRestaurants(data);
 		}, filters);
-
-		return () => {
-			unsubscribe();
-		};
 	}, [filters]);
 
 	return (
