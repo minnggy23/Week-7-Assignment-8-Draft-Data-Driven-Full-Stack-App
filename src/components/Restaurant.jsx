@@ -37,13 +37,12 @@ export default function Restaurant({
   async function handleRestaurantImage(target) {
     const image = target.files ? target.files[0] : null;
     if (!image) {
-      return;
+            return;
     }
 
     const imageURL = await updateRestaurantImage(id, image);
-    setRestaurantDetails({ ...restaurant, photo: imageURL });
-  }
-
+    setRestaurant({ ...restaurant, photo: imageURL });
+}
   const handleClose = () => {
     setIsOpen(false);
     setReview({ rating: 0, text: "" });
