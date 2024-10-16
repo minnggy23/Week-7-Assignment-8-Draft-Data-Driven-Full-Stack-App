@@ -33,7 +33,7 @@ export default function Restaurant({
   const onChange = (value, name) => {
     setReview({ ...review, [name]: value });
   };
-
+  
   async function handleRestaurantImage(target) {
     const image = target.files ? target.files[0] : null;
     if (!image) {
@@ -41,7 +41,7 @@ export default function Restaurant({
     }
 
     const imageURL = await updateRestaurantImage(id, image);
-    setRestaurant({ ...restaurant, photo: imageURL });
+    setRestaurantDetails({ ...restaurantDetails, photo: imageURL });
 }
   const handleClose = () => {
     setIsOpen(false);
