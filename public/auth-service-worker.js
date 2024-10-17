@@ -8000,6 +8000,12 @@
     console.log("Service worker installed with Firebase config", firebaseConfig);
   });
   self.addEventListener("fetch", (event) => {
+    if (!firebaseConfig) {
+      const serializedFirebaseConfig = new URL(location).searchParams.get(
+        "firebaseConfig"
+      );
+      firebaseConfig = JSON.parse(serializedFirebaseConfig);
+    }
     const { origin } = new URL(event.request.url);
     if (origin !== self.location.origin)
       return;
